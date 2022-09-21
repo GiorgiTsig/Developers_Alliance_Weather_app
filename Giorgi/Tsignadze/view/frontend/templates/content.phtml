@@ -1,0 +1,45 @@
+<?php
+use Giorgi\Tsignadze\Block\Main;
+/** @var Main $block */
+$city = $block->getcity();
+$country = $block->getCountry();
+$description = $block->getdescription();
+$temperature = $block->gettemperature();
+$feelslike = $block->getfeelslike();
+$pressure = $block->getpressure();
+$humidity = $block->gethumidity();
+$windspeed = $block->getwindspeed();
+$sunrise = $block->getsunrise();
+$sunset = $block -> getsunset();
+?>
+
+<h1>Weather in your current location</h1>
+
+<form method="post" action="http://magento.localhost/weather/weather/CurlAction">
+    <label for="city">City</label>
+    <br>
+    <input type="text" id="city" name="city">
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<br>
+<ul>
+    <li>City: <?= $city ?></li>
+    <li>Country: <?= $country ?></li>
+    <li>Description: <?= $description ?> </li>
+    <li>Temperature: <?= $temperature ?> </li>
+    <li>Feels Like: <?= $feelslike ?> </li>
+    <li>Pressure: <?= $pressure ?> </li>
+    <li>Humidity: <?= $humidity ?> </li>
+    <li>Wind Speed (meter/sec): <?= $windspeed ?> </li>
+    <li>Sunrise (UTC): <?= $sunrise ?></li>
+    <li>Sunset (UTC): <?= $sunset ?></li>
+</ul>
+
+
+
+
+
+

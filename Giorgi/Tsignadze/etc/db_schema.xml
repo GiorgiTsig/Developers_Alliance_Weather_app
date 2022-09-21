@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="weather" resource="default" engine="innodb" comment="weather">
+        <column xsi:type="int" name="weather_id" unsigned="false" nullable="false" identity="true"/>
+        <column xsi:type="varchar" name="city" nullable="false"/>
+        <column xsi:type="varchar" name="country" nullable="false"/>
+        <column xsi:type="varchar" name="description" nullable="false"/>
+        <column xsi:type="int" name="temperature" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="int" name="feels like" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="int" name="pressure" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="int" name="humidity" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="int" name="wind speed" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="datetime" name="sunrise" nullable="false" on_update="true"/>
+        <column xsi:type="datetime" name="sunset" nullable="false" on_update="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="weather_id"/>
+        </constraint>
+        <index referenceId="DB_SCHEMA_WEATHER_ID" indexType="btree">
+            <column name="weather_id"/>
+        </index>
+    </table>
+</schema>

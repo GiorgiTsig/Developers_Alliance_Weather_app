@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Giorgi\Tsignadze\Api\Data\WeatherInterface" type="Giorgi\Tsignadze\Model\Weather"/>
+    <preference for="Giorgi\Tsignadze\Api\WeatherRepositoryInterface" type="Giorgi\Tsignadze\Model\WeatherRepository" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="giorgi_tsignadze_weather_grid_data_source" xsi:type="string">DevGridCategoryCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="DevGridCategoryCollection" type="Giorgi\Tsignadze\Ui\DataProvider\Weather\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">weather</argument>
+            <argument name="resourceModel" xsi:type="string">Giorgi\Tsignadze\Model\ResourceModel\Weather</argument>
+        </arguments>
+    </virtualType>
+</config>
+

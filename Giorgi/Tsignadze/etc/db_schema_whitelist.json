@@ -1,0 +1,23 @@
+{
+    "db_schema": {
+        "column": {
+            "weather_id": true,
+            "city": true,
+            "country": true,
+            "description": true,
+            "temperature": true,
+            "feels like": true,
+            "pressure": true,
+            "humidity": true,
+            "wind speed": true,
+            "sunrise": true,
+            "sunset": true
+        },
+        "index": {
+            "DB_SCHEMA_WEATHER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
