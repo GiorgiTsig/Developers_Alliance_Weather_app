@@ -43,7 +43,7 @@ class CurlAction extends ParentAction implements HttpGetActionInterface, HttpPos
         $this->DataPersistorInterface=$dataPersistor;
         parent::__construct($context);
     }
-    public function extractWeatherData(array $apiResult)
+    public function extractData(array $apiResult)
     {
         $temperatureData = $apiResult['main'];
         $sysData = $apiResult['sys'];
@@ -74,7 +74,7 @@ class CurlAction extends ParentAction implements HttpGetActionInterface, HttpPos
             $json = json_decode($body, true);
             if ((int)$json['cod'] === 200) {
                 $this->DataPersistorInterface->set('city', $city);
-                $weatherData = $this->extractWeatherData($json);
+                $weatherData = $this->extractData($json);
                 $openWeather = $this->WeatherInterfaceFactory->create();
                 foreach ($weatherData as $key => $value) {
                     $openWeather->setData($key, $value);

@@ -1,0 +1,57 @@
+<?php
+/** @var Giorgi\Tsignadze\Block\Main $block */
+?>
+<style>
+    th
+    {
+        font-size: 10px;
+    }
+    td
+    {
+        font-size: 10px;
+    }
+
+    th, td
+    {
+        padding: 2px;
+    }
+    table, th, td
+    {
+        border: 1px solid;
+        border-collapse: collapse;
+    }
+</style>
+<table>
+    <thead>
+    <tr>
+    <th>Id</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Description</th>
+    <th>Temperature</th>
+    <th>Feels Like</th>
+    <th>Pressure</th>
+    <th>Humidity</th>
+    <th>Wind Speed</th>
+    <th>Sunrise</th>
+    <th>Sunset</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($block->getWeatherData() as $item) : ?>
+        <tr>
+            <td><?= $item->getId() ?></td>
+            <td><?= $item->getCity() ?></td>
+            <td><?= $item->getCountry() ?></td>
+            <td><?= $item->getDescription() ?></td>
+            <td><?= $item->getTemperature() ?></td>
+            <td><?= $item->getFeelsLike() ?></td>
+            <td><?= $item->getPressure() ?></td>
+            <td><?= $item->getHumidity() ?></td>
+            <td><?= $item->getWindSpeed() ?></td>
+            <td><?= $item->getSunrise() ?></td>
+            <td><?= $item->getSunset() ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

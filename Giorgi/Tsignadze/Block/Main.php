@@ -5,16 +5,22 @@ namespace Giorgi\Tsignadze\Block;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\View\Element\Template;
 use Giorgi\Tsignadze\Api\Data\WeatherInterface;
+use Giorgi\Tsignadze\Model\ResourceModel\Weather\CollectionFactory;
+
 
 class Main extends Template
 {
+    protected $WeatherCollectionFactory;
+
     public function __construct(
         Template\Context $context,
         WeatherInterface $WeatherInterface,
         DataPersistorInterface $dataPersistor,
+        CollectionFactory $WeatherCollectionFactory,
         array $data = [])
     {
         $this->WeatherInterface=$WeatherInterface;
+        $this->WeatherCollectionFactory = $WeatherCollectionFactory;
         $this->DataPersistorInterface=$dataPersistor;
         parent::__construct($context, $data);
     }
@@ -98,5 +104,9 @@ class Main extends Template
         return null;
     }
 
+    public function getWeatherData()
+    {
+        return $this->WeatherCollectionFactory->create();
+    }
 
 }
